@@ -11,7 +11,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="main.css">
+
 
 </head>
 
@@ -28,16 +32,14 @@
                     </div>
                     <form action="" class="form-search">
                         <div class="xl:ml-12 flex rounded-md shadow-sm">
-                            <button
-                                class="inline-flex items-center px-4 rounded-l-md bg-gray-100 text-gray-500 text-sm">
+                            <button class="form-search__btn">
                                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                     class="text-gray-400 group-focus-within:text-gray-500 transition-colors duration-150">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                 </svg>
                             </button>
-                            <input type="text" name="company-website" id="company-website"
-                                class="outline-none bg-gray-100 flex-1 block w-1/2 py-3 pr-4 rounded-none rounded-r-md sm:text-sm"
+                            <input type="text" name="company-website" id="company-website" class="form-search__input"
                                 placeholder="Search HotAsset...">
                         </div>
                     </form>
@@ -76,7 +78,7 @@
                     <ul class="site-nav-desktop-nav">
                         <li class="menu-item static group"><a href="#" class="navbar__link">Graphics &amp;
                                 Design </a>
-                            <div class="dropdown-menu megamenu">
+                            <div class="dropdown-menu megamenu group-hover:block">
                                 <div class="dropdown-menu-container">
                                     <div class="menu-col">
                                         <div class="mb-8">
@@ -101,7 +103,8 @@
                                             <h4 class="megamenu__title">Art & Illustration</h4>
                                             <ul>
                                                 <li><a href="#" class="megamenu__link">Illustration</a></li>
-                                                <li><a href="#" class="megamenu__link">Pattern Design</a>
+                                                <li><a href="#" class="megamenu__link">Pattern Design</a> <small
+                                                        class="badge">New</small>
                                                 </li>
                                                 <li><a href="#" class="megamenu__link">Portraits & Caricatures</a>
                                                 </li>
@@ -140,7 +143,9 @@
                                             <ul>
                                                 <li><a href="#" class="megamenu__link">Web & Mobile Design</a></li>
                                                 <li><a href="#" class="megamenu__link">Social Media Design</a></li>
-                                                <li><a href="#" class="megamenu__link">AR Filters & Lenses</a></li>
+                                                <li><a href="#" class="megamenu__link">AR Filters & Lenses</a>
+                                                    <small class="badge">New</small>
+                                                </li>
                                                 <li><a href="#" class="megamenu__link">Web Banners</a></li>
                                             </ul>
                                         </div>
@@ -158,10 +163,12 @@
                                         <div class="mb-8">
                                             <h4 class="megamenu__title">Fashion & Merchandise</h4>
                                             <ul>
-                                                <li><a href="#" class="megamenu__link">Fashion Design</a></li>
+                                                <li><a href="#" class="megamenu__link">Fashion Design</a> <small
+                                                        class="badge">New</small></li>
                                                 <li><a href="#" class="megamenu__link">T-Shirts & Merchandise</a>
                                                 </li>
-                                                <li><a href="#" class="megamenu__link">Jewelry Design</a></li>
+                                                <li><a href="#" class="megamenu__link">Jewelry Design</a> <small
+                                                        class="badge">New</small></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -171,7 +178,8 @@
                                             <ul>
                                                 <li><a href="#" class="megamenu__link">Flyer Design</a></li>
                                                 <li><a href="#" class="megamenu__link">Brochure Design</a></li>
-                                                <li><a href="#" class="megamenu__link">Signage Design</a></li>
+                                                <li><a href="#" class="megamenu__link">Signage Design</a><small
+                                                        class="badge">New</small></li>
                                                 <li><a href="#" class="megamenu__link">Poster Design</a></li>
                                                 <li><a href="#" class="megamenu__link">Catalog Design</a></li>
                                                 <li><a href="#" class="megamenu__link">Menu Design</a></li>
@@ -254,7 +262,7 @@
                                 </path>
                             </svg>
                         </span>
-                        <div class="btn-dropdown-options">
+                        <div class="btn-dropdown-options hidden">
                             <ul>
                                 <li>
                                     <a href="#" class="btn-dropdown-option__link active">Popular</a>
@@ -302,7 +310,7 @@
                     </div>
                 </div>
             </div>
-            <div class="shot-filters">
+            <div class="shot-filters hidden">
                 <form action="" class="shot-filters-form">
                     <fieldset class="find-shots-assets-type">
                         <label for="" class="shot-filter-form-label">Asset Type</label>
@@ -710,41 +718,41 @@
                         <ul class="list-none footer-links leading-6">
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Go
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Go
                                     Pro!</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Explore
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Explore
                                     design works</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Design
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Design
                                     blog</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Overtime
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Overtime
                                     podcast</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Dribbble
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Dribbble
                                     meetups</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Playoffs</a>
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Playoffs</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Weekly
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Weekly
                                     warm-ups</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Code
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Code
                                     of conduct</a>
                             </li>
                         </ul>
@@ -755,17 +763,17 @@
                             <ul class="list-none footer-links leading-6">
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Post
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Post
                                         a job opening</a>
                                 </li>
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Post
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Post
                                         a freelance project</a>
                                 </li>
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Search
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Search
                                         for designers</a>
                                 </li>
                             </ul>
@@ -775,7 +783,7 @@
                             <ul>
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Advertise
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Advertise
                                         with us</a>
                                 </li>
                             </ul>
@@ -787,38 +795,38 @@
                         <ul class="list-none footer-links leading-6">
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">About</a>
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">About</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Careers</a>
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Careers</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Media
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Media
                                     Kit</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Dribbble
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Dribbble
                                     shop</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Testimonials</a>
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Testimonials</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">API</a>
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">API</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Terms
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Terms
                                     of service</a>
                             </li>
                             <li class="footer__item">
                                 <a href="#"
-                                    class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Privacy
+                                    class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Privacy
                                     policy</a>
                             </li>
                         </ul>
@@ -829,21 +837,21 @@
                             <ul class="list-none footer-links leading-6">
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Design
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Design
                                         jobs</a>
                                 </li>
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Designers
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Designers
                                         to hire</a>
                                 </li>
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Tags</a>
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Tags</a>
                                 </li>
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Places</a>
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Places</a>
                                 </li>
                             </ul>
                         </div>
@@ -853,7 +861,7 @@
                             <ul>
                                 <li class="footer__item">
                                     <a href="#"
-                                        class="text-gray-500 border-b border-solid border-transparent hover:border-red-500 hover:text-red-500">Shop
+                                        class="text-gray-500 border-b border-solid border-transparent hover:border-brand hover:text-brand">Shop
                                         Creative Market</a>
                                 </li>
                             </ul>
@@ -866,6 +874,10 @@
             </div>
         </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
