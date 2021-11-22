@@ -1,7 +1,6 @@
 $(document).ready(function () {
-    $('.grid-mansory').masonry({
-        percentPosition: true
-    });
+
+
     if ($('.mySwiper2')) {
         var swiper2 = new Swiper(".mySwiper2", {
             navigation: {
@@ -24,6 +23,10 @@ $(document).ready(function () {
         $('#pronounce').select2({
         });
     }
+    if ($('#tags')) {
+        $('#tags').select2({
+        });
+    }
     const filterViews = $('.filter-views');
     const filterSetting = $('.filter-settings');
     const shotFilters = $('.shot-filters');
@@ -38,5 +41,22 @@ $(document).ready(function () {
         filterViews.on('click', function () {
             btnDropdownOptions.toggle('fast');
         })
+    }
+
+
+
+
+
+    $('#menu-switch').on('click', function () {
+        $('body').toggleClass('toggled');
+    });
+    $('.sidebar-menu__child, .sidebar-menu__parent').on('click', function () {
+        $(this).toggleClass('open').next().slideToggle('fast');
+    })
+
+    if ('.grid-mansory') {
+        $('.grid-mansory').masonry({
+            percentPosition: true
+        });
     }
 })
