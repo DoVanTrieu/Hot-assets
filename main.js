@@ -31,6 +31,8 @@ $(document).ready(function () {
     const filterSetting = $('.filter-settings');
     const shotFilters = $('.shot-filters');
     const btnDropdownOptions = $('.btn-dropdown-options');
+    const headerUserSetting = $('#header-user-setting');
+    const dropdownUserSetting = $('.dropdown-user-setting');
     if (filterSetting) {
         filterSetting.on('click', function () {
             shotFilters.slideToggle('fast');
@@ -40,6 +42,12 @@ $(document).ready(function () {
     if (filterViews) {
         filterViews.on('click', function () {
             btnDropdownOptions.toggle('fast');
+        })
+    }
+    if (headerUserSetting) {
+        headerUserSetting.on('click', function () {
+            console.log('1')
+            dropdownUserSetting.toggle('fast');
         })
     }
 
@@ -54,7 +62,7 @@ $(document).ready(function () {
         $(this).toggleClass('open').next().slideToggle('fast');
     })
 
-    if ('.grid-mansory') {
+    if ($('.grid-mansory')) {
         $('.grid-mansory').masonry({
             percentPosition: true
         });
